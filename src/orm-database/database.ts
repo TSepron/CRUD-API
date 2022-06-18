@@ -66,4 +66,15 @@ export class User implements OneUser {
 
     return foundUser
   }
+
+  static async delete(userId: string) {
+    const userForDelete = await this.find(userId)
+
+    if (userForDelete == null)
+      return userForDelete
+
+    this.users = this.users.filter(user => user.id !== userForDelete.id)
+
+    return userForDelete
+  }
 }

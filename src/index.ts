@@ -121,6 +121,32 @@ createServer(async (req, res) => {
 
 
   const handleDelete = async () => {
+    // DELETE  api/users/{userId}
+    if (urlPaths.length === 3) {
+      const userId = urlPaths[2]
+
+      if (!isUuid(userId)) {
+        res.statusCode = STATUS_CODE.BAD_REQUEST
+        res.end(JSON.stringify({
+          message: 'userId is invalid'
+        }))
+      }
+
+      const deletedUser = await User.delete(userId)
+
+      if (deletedUser == null) {
+        res.statusCode = STATUS_CODE.NOT_FOUND
+        res.end(JSON.stringify({
+          message: `record with id === ${userId} doesn't exist`
+        }))
+      }
+
+      if (res.writableEnded)
+        return
+
+      res.statusCode = STATUS_CODE.NO_CONTENT
+      res.end(JSON.stringify(deletedUser))
+    }
   }
 
 
