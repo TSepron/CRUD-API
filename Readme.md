@@ -1,4 +1,3 @@
-
 Open terminal and
 
 ```
@@ -7,12 +6,13 @@ npm i
 
 rename .env.example to .env
 
-again in terminal
+then again in terminal:
+- 1 dev mode
 
 ```
 npm run start:dev
 ```
 
-3 Open Postman and make requests as described in
+Open Postman and make requests as described in
 https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md
 
