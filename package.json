@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon src/index.ts",
     "start:prod": "npx webpack && node dist/bundle.js",
-    "test": "npx jest"
+    "test": "npx jest",
+    "start:multi": "npx ts-node ./src/loadBalancer.ts"
   },
   "type": "module",
   "keywords": [],
